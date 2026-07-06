@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ankit Rout Portfolio</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+body{
+ background:#0f172a;
+ color:white;
+ font-family:Arial;
+ text-align:center;
+ margin-top:100px;
+}
+.card{
+ background:#1e293b;
+ padding:30px;
+ border-radius:20px;
+ width:60%;
+ margin:auto;
+ opacity:0;
+ transform:translateY(100px);
+}
+h1{color:#38bdf8;}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h1>ANKIT ROUT</h1>
+  <h3>Full Stack Java Developer</h3>
+  <p>Java | Spring Boot | Microservices | AWS | Docker</p>
+</div>
+
+<script>
+gsap.to("#card",{
+   duration:1.5,
+   opacity:1,
+   y:0,
+   ease:"power3.out"
+});
+</script>
+
+</body>
+</html>
