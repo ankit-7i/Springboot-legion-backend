@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+
+  student-app:
+    build: .
+    container_name: student-app
+    ports:
+      - "7777:7777"
+    environment:
+      NEO4J_URI: neo4j+s://77dd79fb.databases.neo4j.io
+      NEO4J_USERNAME: neo4j
+      NEO4J_PASSWORD: NXpvqRr72LvkUrxKtZvL0SM-Ckst4ZzcLSgfSazjBws
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    depends_on:
+      - student-app
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
